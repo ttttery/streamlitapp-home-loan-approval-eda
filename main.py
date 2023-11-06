@@ -35,6 +35,6 @@ def main():
     if page=='Home':
         page_home()
     elif page=='Plot_bar':
-        page_plot_pie()
+        page_plot_bar()
 
 main()
