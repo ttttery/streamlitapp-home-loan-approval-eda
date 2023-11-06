@@ -9,7 +9,13 @@ def main():
 
     x=st.sidebar.slider('The size of data:',0.0,1.0,1.0,0.01)
     df=wash_data.wash_data()
-    df_selected=get_data.select_data(size=x)
+    is_graduate=st.selectbox('Graduate', [True,False,None])
+    is_married=st.selectbox('Married', [True,False,3])
+    is_female=st.selectbox('Female', [True,False,None])
+    is_self_employed=st.selectbox('Self_employed', [True,False,None])
+    is_urban=st.selectbox('Urban', [True,False,None])
+    credit_history=st.selectbox('Credit_History',[True,False,None])
+    df_selected=get_data.select_data(size=x,is_graduate,is_married,is_female,is_self_employed,is_urban,credit_history)
     st.dataframe(df_selected)
     return None
     # radio('Pick one:', ['nose ','ear'])
