@@ -15,7 +15,7 @@ def main():
     is_self_employed=st.sidebar.selectbox('Self_employed', [True,False,None])
     is_urban=st.sidebar.selectbox('Urban', [True,False,None])
     credit_history=st.sidebar.selectbox('Credit_History',[True,False,None])
-    df_selected=get_data.sidebar.select_data(x,is_graduate,is_married,is_female,is_self_employed,is_urban,credit_history)
+    df_selected=get_data.select_data(x,is_graduate,is_married,is_female,is_self_employed,is_urban,credit_history)
     st.dataframe(df_selected)
     return None
     # radio('Pick one:', ['nose ','ear'])
