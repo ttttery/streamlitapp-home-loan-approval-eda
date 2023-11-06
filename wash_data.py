@@ -33,7 +33,7 @@ def Loan_Status_(x):
         return 0
     
 def wash_data():
-    HomeLoansApproval=pd.read_csv('d:/data/MISY225/HomeLoanApproval/loan_sanction_train.csv')
+    HomeLoansApproval=pd.read_csv('loan_sanction_train.csv')
     #删除重复的ID
     HomeLoansApproval=HomeLoansApproval.drop_duplicates(subset=['Loan_ID'])
     #用subset指定删除缺失值所在列
