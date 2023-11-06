@@ -33,7 +33,7 @@ def page_plot_bar():
     credit_history = st.sidebar.selectbox('Credit_History', [None, True, False])
     df_selected = get_data.select_data(x, is_graduate, is_married, is_female, is_self_employed, is_urban,
                                        credit_history)
-    st.bar_chart(df_selected['ApplicantIncome'],df_selected['LoanAmount'])
+    st.bar_chart(df_selected[['ApplicantIncome','LoanAmount']])
 
 def main():
 
