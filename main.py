@@ -21,8 +21,9 @@ def page_home():
 
     return None
 
-def page_plot_pie():
-    st.title('Pie Graph')
+def page_plot_bar():
+    st.title('Bar Graph')
+    st.bar_chart(df_selected)
 
 def main():
 
@@ -30,7 +31,7 @@ def main():
     if 'page' not in session_state:
         session_state['page']='Home'
     page=st.sidebar.radio('Navigate',['Home','Plot_pie'])
-
+    
     if page=='Home':
         page_home()
     elif page=='About':
