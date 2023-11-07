@@ -34,7 +34,7 @@ def page_plot_bar():
     choice_x=st.selectbox('x variable',df_x.columns.tolist())
     choice_y=st.selectbox('y variable',df_y.columns.tolist())
     df_selected_g=df_selected.groupby(choice_x)
-    df=df_selected_g.mean()
+    df=df_selected_g[[choice_y]].mean()
     st.bar_chart(df)
     return None
 
