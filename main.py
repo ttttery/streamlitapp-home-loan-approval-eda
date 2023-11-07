@@ -39,7 +39,7 @@ def main():
     session_state=st.session_state
     if 'page' not in session_state:
         session_state['page']='Home'
-    page=st.sidebar.radio('Navigate',['Home','Plot_bar','Plot_box])
+    page=st.sidebar.radio('Navigate',['Home','Plot_bar','Plot_box'])
     
     if page=='Home':
         page_home()
