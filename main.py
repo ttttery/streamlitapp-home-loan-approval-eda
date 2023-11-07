@@ -18,7 +18,7 @@ def page_plot_bar():
 
 def page_plot_box():
     df_selected = data_selected()
-    # px.box(df_selected,x='Is_graduate',y='LoanAmount')
+    px.box(df_selected,x='Is_graduate',y='LoanAmount')
     st.title('Boxplot')
     return None
 
