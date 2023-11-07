@@ -50,7 +50,9 @@ def page_plot_pie():
     df_selected_g=df_selected.groupby('Loan_Status')
     df=df_selected_g.count()
     fig,ax=plt.subplots()
-    ax.pie(df['Loan_ID'],autopct="%1.1f%%")
+    labels=['Loan_Status:0','Loan_Status:1']
+    ax.pie(df['Loan_ID'],labels=labels,autopct="%1.1f%%")
+    
     st.pyplot(fig)
     return None
 
