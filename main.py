@@ -46,6 +46,20 @@ def page_plot_pie():
     st.pyplot(fig)
     return None
 
+def page_plot_heatmap():
+    fig,ax=plt.subplots()
+    df_selected=data_selected()
+    variables=df_selected.columns.tolist()
+    labels=df_selected.columns.tolist()
+    cax=ax.matshow(df_selected,cmap='hot_b')
+    fig.colorbar(cax)
+    tick_spacing=1
+    ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
+    ax.set_xticklabels(['']+list(df_selected.columns))
+    ax.set_yticklabels(['']+list(df_selected.columns))    
+    st.pyplot(fig)
+
 def main():
 
     session_state=st.session_state
