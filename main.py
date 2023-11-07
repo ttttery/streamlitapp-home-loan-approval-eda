@@ -51,7 +51,7 @@ def page_plot_heatmap():
     df_selected=data_selected()
     variables=df_selected.columns.tolist()
     labels=df_selected.columns.tolist()
-    cax=ax.matshow(df_selected,cmap='hot_b')
+    cax=ax.matshow(df_selected,cmap='hot_r')
     fig.colorbar(cax)
     tick_spacing=1
     ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
