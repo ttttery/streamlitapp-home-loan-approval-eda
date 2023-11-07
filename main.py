@@ -33,6 +33,7 @@ def page_home():
     return None
 
 #Author:Yuxi Guo
+#To plot the mean value of the variables and make it visible in a bar plot.
 def page_plot_bar():
     plt.style.use("ggplot")
     df_selected=data_selected()
