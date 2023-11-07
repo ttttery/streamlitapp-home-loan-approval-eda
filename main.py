@@ -1,4 +1,4 @@
-
+import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import pandas as pd
@@ -27,11 +27,13 @@ def page_home():
     return None
 
 def page_plot_bar():
+    plt.style.use("ggplot")
     df_selected=data_selected()
     st.bar_chart(df_selected[['ApplicantIncome','LoanAmount']])
     return None
 
 def page_plot_box():
+    plt.style.use("ggplot")
     st.title('Boxplot')
     df_selected = data_selected()
     fig,ax=plt.subplots()
@@ -39,6 +41,7 @@ def page_plot_box():
     return None
 
 def page_plot_pie():
+    plt.style.use("ggplot")
     df_selected = data_selected()
     df_selected_g=df_selected.groupby('Loan_Status')
     df=df_selected_g.count()
@@ -48,7 +51,8 @@ def page_plot_pie():
     return None
 
 def page_plot_heatmap():
-    fig,ax=plt.subplots(layout='wide')
+    plt.style.use("ggplot")
+    fig,ax=plt.subplots()
     df_selected=data_selected()
     df=df_selected.drop(['Loan_ID'],axis=1)
     cols=df.corr().abs().nlargest(9, 'Loan_Status')['Loan_Status'].index
