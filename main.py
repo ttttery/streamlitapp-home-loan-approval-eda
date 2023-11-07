@@ -25,12 +25,14 @@ def data_selected():
                                        credit_history)
     return df_selected
 
-
+#Author:Yuxi Guo
+#To implement the home page and make our dataset visible.
 def page_home():
     df_selected=data_selected()
     st.dataframe(df_selected)
     return None
 
+#Author:Yuxi Guo
 def page_plot_bar():
     plt.style.use("ggplot")
     df_selected=data_selected()
@@ -44,6 +46,8 @@ def page_plot_bar():
     st.bar_chart(df)
     return None
 
+#Author:Yuxi Guo
+#This function is to implement the box plot in our app.
 def page_plot_box():
     plt.style.use("ggplot")
     st.title('Boxplot')
@@ -56,6 +60,8 @@ def page_plot_box():
     st.pyplot(s)
     return None
 
+#Author:Yuxi Guo
+#This section is to design pie chart of our dataset.
 def page_plot_pie():
     plt.style.use("ggplot")
     df_selected = data_selected()
@@ -65,11 +71,10 @@ def page_plot_pie():
     df=df_selected_g.count()
     fig,ax=plt.subplots()
     labels=[]
+    #to implement the labels' length is the same to the number of rows
     if df.shape[0]==0:
         st.text('The dataset that you selected is empty, please give up some selectors.')
         return None
-    # elif choice_x=='Dependents':
-    #     labels=[f'{choice_x}:0',f'{choice_x}:1',f'{choice_x}:2',f'{choice_x}:3+']
     else:
         for i in range(0,df.shape[0]):
             labels.append(f'{choice_x}:{i}')
@@ -77,6 +82,8 @@ def page_plot_pie():
     st.pyplot(fig)
     return None
 
+#Author:Yuxi Guo
+#This function is to design the heatmap page and plot it with the dataset selected.
 def page_plot_heatmap():
     plt.style.use("ggplot")
     fig,ax=plt.subplots()
@@ -95,14 +102,15 @@ def page_plot_heatmap():
     ax.set_yticklabels(['']+labels)    
     st.pyplot(fig)
     return None
-    
-def main():
 
+#Author:Yuxi Guo
+def main():
+    #This section is to implement the control flow of our app, where the pages designing are implemented.
     session_state=st.session_state
     if 'page' not in session_state:
         session_state['page']='Home'
     page=st.sidebar.radio('Navigate',['Home','Plot_bar','Plot_box','Plot_pie','Plot_heatmap'])
-    
+    #to implement multi-pages
     if page=='Home':
         page_home()
     elif page=='Plot_bar':
