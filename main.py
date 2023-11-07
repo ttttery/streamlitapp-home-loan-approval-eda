@@ -92,7 +92,9 @@ def page_plot_heatmap():
     df=df_selected.drop(['Loan_ID'],axis=1)
     cols=df.corr().abs().nlargest(9, 'Loan_Status')['Loan_Status'].index
     cm=df_selected[cols].corr()
-    variables=cols.apply(lambda x:x[0]+x[1]+x[2])
+    variables=cols.tolist()
+    for v in range(0,len(variables)):
+        variables[v]=variables[v][0:3]
     labels=cols.tolist()
     cax=ax.matshow(cm,cmap='hot_r')
     fig.colorbar(cax)
