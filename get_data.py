@@ -1,5 +1,7 @@
 import wash_data
 
+#Author:Yuxi Guo
+#This section is to make a function that can connect the parameters of widgets of app to our dataset and get the selected data. 
 def get_all_data():
     return wash_data.wash_data()
 
