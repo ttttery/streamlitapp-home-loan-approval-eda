@@ -35,6 +35,9 @@ def page_plot_bar():
                                        credit_history)
     st.bar_chart(df_selected[['ApplicantIncome','LoanAmount']])
 
+def page_box_plot():
+    pass
+    
 def main():
 
     session_state=st.session_state
