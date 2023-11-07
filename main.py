@@ -18,7 +18,7 @@ def page_plot_bar():
 
 def page_plot_box():
     df_selected = data_selected()
-    fig,ax=plt.subplot()
+    fig,ax=plt.subplots()
     st.pyplot(fig)
     st.title('Boxplot')
     return None
