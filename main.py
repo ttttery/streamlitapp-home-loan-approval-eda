@@ -56,7 +56,7 @@ def page_plot_pie():
     if df.shape[0]==0:
         st.text('The dataset that you selected is empty, please give up some selectors.')
         return None
-    elif x_choice=='Dependents':
+    elif choice_x=='Dependents':
         labels=[f'{choice_x}:0',f'{choice_x}:1',f'{choice_x}:2',f'{choice_x}:3+']
     else:
         for i in range(0,df.shape[0]):
