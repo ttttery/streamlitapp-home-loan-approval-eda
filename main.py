@@ -1,4 +1,4 @@
-import plotly.express as px
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -18,7 +18,8 @@ def page_plot_bar():
 
 def page_plot_box():
     df_selected = data_selected()
-    px.box(df_selected,x='Is_graduate',y='LoanAmount')
+    fig,ax=plt.subplot()
+    st.pyplot(fig)
     st.title('Boxplot')
     return None
 
