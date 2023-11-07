@@ -35,10 +35,12 @@ def page_plot_bar():
 def page_plot_box():
     plt.style.use("ggplot")
     st.title('Boxplot')
+    fig=plt.figure()
     df_selected = data_selected()
     choice_x=st.selectbox('x variable',df_selected.columns.tolist())
     choice_y=st.selectbox('y variable',['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit History','Dependents'])
     sns.catplot(x=choice_x,y=choice_y,kind='box',data=df_selected)
+    st.pyplot(fig)
     return None
 
 def page_plot_pie():
