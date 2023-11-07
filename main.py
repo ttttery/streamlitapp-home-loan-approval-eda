@@ -25,7 +25,7 @@ def data_selected():
                                        credit_history)
     return df_selected
 
-#Author:Yuxi Guo
+#Author:Tangyu Guo, Yuxi Guo
 #To implement the home page and make our dataset visible.
 def page_home():
     df_selected = data_selected()
