@@ -23,6 +23,13 @@ def page_plot_box():
     st.pyplot(fig)
     return None
 
+def page_plot_pie():
+    df_selected_g=df_selected.groupby('Loan_Status')
+    df=df_selected_g.count()
+    fig,ax=plt.subplots()
+    ax.pie(df['Loan_ID'],autopct="%1.1f%%")
+    return None
+
 def data_selected():
     x = st.sidebar.slider('The size of data:', 0.0, 1.0, 1.0, 0.01)
     df = wash_data.wash_data()
