@@ -35,13 +35,12 @@ def page_plot_bar():
 def page_plot_box():
     plt.style.use("ggplot")
     st.title('Boxplot')
-    fig=plt.figure()
+    fig,ax=plt.subplots()
     df_selected = data_selected()
     choice_x=st.selectbox('x variable',df_selected.columns.tolist())
     choice_y=st.selectbox('y variable',['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit History','Dependents'])
     sns.catplot(x=choice_x,y=choice_y,kind='box',data=df_selected)
-    plt.show()
-    st.pyplot()
+    st.pyplot(fig)
     return None
 
 def page_plot_pie():
@@ -71,7 +70,8 @@ def page_plot_heatmap():
     ax.set_xticklabels(['']+variables)
     ax.set_yticklabels(['']+labels)    
     st.pyplot(fig)
-
+    return None
+    
 def main():
 
     session_state=st.session_state
