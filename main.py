@@ -43,6 +43,7 @@ def page_plot_pie():
     df=df_selected_g.count()
     fig,ax=plt.subplots()
     ax.pie(df['Loan_ID'],autopct="%1.1f%%")
+    st.pyplot(fig)
     return None
 
 def main():
