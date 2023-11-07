@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+#Author:Yuxi Guo
+#This section is to wash the data, making it more convenient for EDA. And I use some build-in functions to pad the nan value of data we chose.
 def is_graduate(x):
     if x=='Graduate':
         return 1
@@ -34,14 +36,14 @@ def Loan_Status_(x):
     
 def wash_data():
     HomeLoansApproval=pd.read_csv('loan_sanction_train.csv')
-    #删除重复的ID
+    #drop the data that has same ID
     HomeLoansApproval=HomeLoansApproval.drop_duplicates(subset=['Loan_ID'])
-    #用subset指定删除缺失值所在列
+    #use subset to point out the columns whose nan values are deleted 
     HomeLoansApproval.dropna(axis=0,how='any',subset=['Gender','Married','Dependents','Self_Employed','Credit_History'],inplace=True)
     HomeLoansApproval_mean=HomeLoansApproval['LoanAmount'].fillna(value=HomeLoansApproval['LoanAmount'].mean(),inplace=False)
-    #中位数替换
+    #median replacing
     HomeLoansApproval_median=HomeLoansApproval['Loan_Amount_Term'].fillna(HomeLoansApproval['Loan_Amount_Term'].median(),inplace=False)
-    #将填补后的新Series取代原来的Series
+    #replace the old series object with new series.
     HomeLoansApproval=HomeLoansApproval.drop(labels=['LoanAmount','Loan_Amount_Term'],axis=1)
     HomeLoansApproval['LoanAmount']=HomeLoansApproval_mean
     HomeLoansApproval['Loan_Amount_Term']=HomeLoansApproval_median
