@@ -35,6 +35,7 @@ def page_plot_bar():
     choice_y=st.selectbox('y variable',df_y.columns.tolist())
     df_selected_g=df_selected.groupby(choice_x)
     df=df_selected_g[[choice_y]].mean()
+    st.text("Average Values of y variables")
     st.bar_chart(df)
     return None
 
