@@ -36,8 +36,8 @@ def page_plot_box():
     plt.style.use("ggplot")
     st.title('Boxplot')
     df_selected = data_selected().drop('Loan_ID',axis=1)
-    df_x=df_selected[['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit History','Dependents']]
-    df_y=df_selected.drop(['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit History','Dependents'],axis=1)
+    df_x=df_selected[['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents']]
+    df_y=df_selected.drop(['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents'],axis=1)
     choice_x=st.selectbox('x variable',df_x.columns.tolist())
     choice_y=st.selectbox('y variable',df_y.columns.tolist())
     s=sns.catplot(x=choice_x,y=choice_y,kind='box',data=df_selected)
