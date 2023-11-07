@@ -24,6 +24,7 @@ def page_plot_box():
     return None
 
 def page_plot_pie():
+    df_selected = data_selected()
     df_selected_g=df_selected.groupby('Loan_Status')
     df=df_selected_g.count()
     fig,ax=plt.subplots()
