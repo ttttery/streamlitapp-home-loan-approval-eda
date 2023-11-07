@@ -30,7 +30,7 @@ def page_plot_bar():
     plt.style.use("ggplot")
     df_selected=data_selected()
     df_x=df_selected[['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents']]
-    df_y=df_selected.drop(['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents'],axis=1)
+    df_y=df_selected.drop(['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents','Loan_ID'],axis=1)
     choice_x=st.selectbox('x variable',df_x.columns.tolist())
     choice_y=st.selectbox('y variable',df_y.columns.tolist())
     df_selected_g=df_selected.groupby(choice_x)
