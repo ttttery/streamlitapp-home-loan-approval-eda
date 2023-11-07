@@ -17,10 +17,10 @@ def page_plot_bar():
     return None
 
 def page_plot_box():
+    st.title('Boxplot')
     df_selected = data_selected()
     fig,ax=plt.subplots()
     st.pyplot(fig)
-    st.title('Boxplot')
     return None
 
 def data_selected():
