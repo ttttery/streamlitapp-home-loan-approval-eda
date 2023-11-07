@@ -50,6 +50,7 @@ def page_plot_heatmap():
     fig,ax=plt.subplots()
     df_selected=data_selected()
     # df=df_selected.drop('Loan_ID')
+    df=df_selected
     cols=df.corr().abs().nlargest(9, 'Loan_Status')['Loan_Status'].index
     cm=df_selected[cols].corr()
     variables=cols.tolist()
