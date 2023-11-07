@@ -1,3 +1,4 @@
+
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
@@ -7,7 +8,11 @@ import streamlit as st
 import wash_data
 import get_data
 
+#Author:Yuxi Guo
 def data_selected():
+    '''
+    This section is to get the dataset selected and transfer the dataset to plots function that works in different pages.
+    '''
     x = st.sidebar.slider('The size of data:', 0.0, 1.0, 1.0, 0.01)
     df = wash_data.wash_data()
     is_graduate = st.sidebar.selectbox('Graduate', [None, True, False])
