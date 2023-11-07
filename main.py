@@ -47,12 +47,16 @@ def page_plot_box():
 def page_plot_pie():
     plt.style.use("ggplot")
     df_selected = data_selected()
-    df_selected_g=df_selected.groupby('Loan_Status')
+    df_x=df_selected[['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents']]
+    choice_x=st.selectbox('Ways to classify',df_x.columns.tolist())
+    df_selected_g=df_selected.groupby(choice_x)
     df=df_selected_g.count()
     fig,ax=plt.subplots()
-    labels=['Loan_Status:0','Loan_Status:1']
+    if choice_x=='Dependents':
+        labels=[f'{choice_x}:0',f'{choice_x}:1',f'{choice_x}:2',f'{choice_x}:3+']
+    else:
+        labels=[f'{choice_x}:0',f'{choice_x}:1']
     ax.pie(df['Loan_ID'],labels=labels,autopct="%1.1f%%")
-    
     st.pyplot(fig)
     return None
 
