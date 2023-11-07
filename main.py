@@ -1,4 +1,4 @@
-import plotly.express as px
+# import plotly.express as px
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -17,8 +17,9 @@ def page_plot_bar():
 
 def page_plot_box():
     df_selected = data_selected()
-    px.box(df_selected,x='Is_graduate',y='LoanAmount')
-    pass
+    # px.box(df_selected,x='Is_graduate',y='LoanAmount')
+    st.title('Boxplot')
+    return None
 
 def data_selected():
     x = st.sidebar.slider('The size of data:', 0.0, 1.0, 1.0, 0.01)
