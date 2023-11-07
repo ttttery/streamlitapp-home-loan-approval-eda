@@ -52,7 +52,7 @@ def page_plot_pie():
     df_selected_g=df_selected.groupby(choice_x)
     df=df_selected_g.count()
     fig,ax=plt.subplots()
-    if df['Loan_ID']==0:
+    if df.shape[0]==0:
         st.text('The dataset that you selected is empty, please give up some selectors.')
         return None
     elif choice_x=='Dependents':
