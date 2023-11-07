@@ -49,15 +49,18 @@ def page_plot_pie():
 def page_plot_heatmap():
     fig,ax=plt.subplots()
     df_selected=data_selected()
-    variables=df_selected.columns.tolist()
-    labels=df_selected.columns.tolist()
-    cax=ax.matshow(df_selected,cmap='hot_r')
+    # df=df_selected.drop('Loan_ID')
+    cols=df.corr().abs().nlargest(9, 'Loan_Status')['Loan_Status'].index
+    cm=df_selected[cols].corr()
+    variables=cols.tolist()
+    labels=cols.tolist()
+    cax=ax.matshow(cm,cmap='hot_r')
     fig.colorbar(cax)
     tick_spacing=1
     ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
     ax.yaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
-    ax.set_xticklabels(['']+list(df_selected.columns))
-    ax.set_yticklabels(['']+list(df_selected.columns))    
+    ax.set_xticklabels(['']+variables)
+    ax.set_yticklabels(['']+labels)    
     st.pyplot(fig)
 
 def main():
