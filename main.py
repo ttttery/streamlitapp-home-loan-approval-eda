@@ -48,7 +48,7 @@ def page_plot_pie():
     return None
 
 def page_plot_heatmap():
-    fig,ax=plt.subplots()
+    fig,ax=plt.subplots(layout='wide')
     df_selected=data_selected()
     df=df_selected.drop(['Loan_ID'],axis=1)
     cols=df.corr().abs().nlargest(9, 'Loan_Status')['Loan_Status'].index
